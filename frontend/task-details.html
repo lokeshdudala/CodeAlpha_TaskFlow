@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Task Details | TaskFlow</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/board.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            📋 TaskFlow
+        </div>
+
+        <ul>
+
+            <li onclick="history.back()">⬅ Back</li>
+
+        </ul>
+
+    </aside>
+
+    <main class="main-content">
+
+        <h1>💬 Task Discussion</h1>
+
+        <br>
+
+        <div id="commentsContainer"></div>
+
+        <div class="comment-box">
+
+            <textarea
+            id="commentText"
+            placeholder="Write your comment..."></textarea>
+
+            <button onclick="addComment()">
+
+                Send Comment
+
+            </button>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="js/comments.js"></script>
+
+</body>
+
+</html>

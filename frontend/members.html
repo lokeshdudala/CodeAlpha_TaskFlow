@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Members | TaskFlow</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/board.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            📋 TaskFlow
+        </div>
+
+        <ul>
+
+            <li onclick="location.href='dashboard.html'">
+                🏠 Dashboard
+            </li>
+
+            <li onclick="location.href='projects.html'">
+                📁 Projects
+            </li>
+
+            <li class="active">
+                👥 Members
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <main class="main-content">
+
+        <h1>👥 Team Members</h1>
+
+        <br>
+        <div style="margin-bottom:20px;">
+
+    <label>Select Project</label>
+
+    <select id="projectSelect">
+
+        <option>
+            Loading Projects...
+        </option>
+
+    </select>
+
+</div>
+
+        <div
+        id="membersContainer"
+        class="project-grid">
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="js/members.js"></script>
+
+</body>
+
+</html>

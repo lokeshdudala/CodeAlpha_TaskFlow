@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar - TaskFlow</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>TaskFlow</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="projects.html">Projects</a>
+            <a href="mytasks.html">My Tasks</a>
+            <a href="calendar.html" class="active">Calendar</a>
+            <a href="members.html">Members</a>
+            <a href="profile.html">Profile</a>
+            <a href="#" id="logoutBtn">Logout</a>
+        </nav>
+    </div>
+
+    <main class="main-content">
+        <header class="topbar">
+            <h1>Calendar</h1>
+        </header>
+
+        <section class="calendar-content">
+            <div class="container">
+                <div id="calendar"></div>
+                <div id="calendarEvents"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/calendar.js"></script>
+    <script src="js/logout.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Tasks | TaskFlow</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/board.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            📋 TaskFlow
+
+        </div>
+
+        <ul>
+
+            <li onclick="location.href='dashboard.html'">
+
+                🏠 Dashboard
+
+            </li>
+
+            <li onclick="location.href='projects.html'">
+
+                📁 Projects
+
+            </li>
+
+            <li class="active">
+
+                📌 My Tasks
+
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <main class="main-content">
+
+        <h1>📌 My Assigned Tasks</h1>
+
+        <br>
+
+        <div
+            id="myTasks"
+            class="project-grid">
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="js/mytasks.js"></script>
+
+</body>
+
+</html>

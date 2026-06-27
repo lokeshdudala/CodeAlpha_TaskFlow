@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | TaskFlow</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            📋 TaskFlow
+        </div>
+
+        <ul>
+
+            <li class="active">
+                🏠 Dashboard
+            </li>
+
+            <li onclick="location.href='projects.html'">
+                📁 Projects
+            </li>
+
+            <li onclick="location.href='mytasks.html'">
+                📋 My Tasks
+            </li>
+
+            <li onclick="location.href='members.html'">
+                👥 Members
+            </li>
+
+            <li onclick="location.href='calendar.html'">
+                📅 Calendar
+            </li>
+
+            <li onclick="location.href='profile.html'">
+                👤 Profile
+            </li>
+
+            <li onclick="logout()">
+                🚪 Logout
+            </li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Top Bar -->
+        <header class="topbar">
+
+            <div>
+
+                <h1>Dashboard</h1>
+
+                <p>
+                    Welcome back,
+                    <span id="userName"></span> 👋
+                </p>
+
+            </div>
+
+            <div class="top-icons">
+
+                <span>🔔</span>
+
+                <span>👤</span>
+
+            </div>
+
+        </header>
+
+        <!-- Statistics -->
+        <section class="stats">
+
+            <div class="card">
+                <h3>Total Projects</h3>
+                <h2 id="totalProjects">0</h2>
+            </div>
+
+            <div class="card">
+                <h3>Total Tasks</h3>
+                <h2 id="totalTasks">0</h2>
+            </div>
+
+            <div class="card">
+                <h3>Completed</h3>
+                <h2 id="completedTasks">0</h2>
+            </div>
+
+            <div class="card">
+                <h3>Pending</h3>
+                <h2 id="pendingTasks">0</h2>
+            </div>
+
+        </section>
+
+        <!-- Recent Projects -->
+        <section class="recent-section">
+
+            <div class="section-header">
+
+                <h2>Recent Projects</h2>
+
+                <button
+                    onclick="location.href='create-project.html'">
+
+                    + New Project
+
+                </button>
+
+            </div>
+
+            <div
+                id="recentProjects"
+                class="project-grid">
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="js/logout.js"></script>
+<script src="js/dashboard.js"></script>
+
+</body>
+</html>

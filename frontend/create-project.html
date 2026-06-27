@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Project - TaskFlow</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>TaskFlow</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="projects.html">Projects</a>
+            <a href="mytasks.html">My Tasks</a>
+            <a href="calendar.html">Calendar</a>
+            <a href="members.html">Members</a>
+            <a href="profile.html">Profile</a>
+            <a href="#" id="logoutBtn">Logout</a>
+        </nav>
+    </div>
+
+    <main class="main-content">
+        <header class="topbar">
+            <h1>Create New Project</h1>
+        </header>
+
+        <section class="form-content">
+            <div class="container">
+                <form id="createProjectForm">
+                    <div class="form-group">
+                        <label for="projectName">Project Name</label>
+                        <input type="text" id="projectName" name="projectName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="projectDescription">Description</label>
+                        <textarea id="projectDescription" name="projectDescription"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="projectStartDate">Start Date</label>
+                        <input type="date" id="projectStartDate" name="projectStartDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="projectEndDate">End Date</label>
+                        <input type="date" id="projectEndDate" name="projectEndDate" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Create Project</button>
+                    <a href="projects.html" class="btn btn-secondary">Cancel</a>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/projects.js"></script>
+    <script src="js/logout.js"></script>
+</body>
+</html>
