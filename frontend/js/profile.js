@@ -1,5 +1,5 @@
 // Profile functions
-const API_URL = 'http://localhost:8000/api/profile';
+const API_URL = 'https://taskflow-backend-7c2p.onrender.com/api/profile';
 
 function checkAuth() {
     if (!localStorage.getItem('token')) {

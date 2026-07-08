@@ -1,5 +1,5 @@
 // Calendar functions
-const API_URL = 'http://localhost:8000/api/tasks';
+const API_URL = 'https://taskflow-backend-7c2p.onrender.com/api/tasks';
 let currentDate = new Date();
 let eventsByDate = {};
 let selectedDateKey = null;

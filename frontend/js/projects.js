@@ -1,5 +1,5 @@
 const API_URL =
-"http://localhost:8000/api/projects";
+"https://taskflow-backend-7c2p.onrender.com/api/projects";
 
 function getAuthHeaders() {
     return {

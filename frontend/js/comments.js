@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8000/api/comments";
+const API_URL = "https://taskflow-backend-7c2p.onrender.com/api/comments";
 
 if (!localStorage.getItem("token")) {
 
