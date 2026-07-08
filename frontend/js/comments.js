@@ -18,7 +18,11 @@ async function loadComments() {
     try {
 
         const response =
-        await fetch(`${API_URL}/${taskId}`);
+        await fetch(`${API_URL}/${taskId}`, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+        });
 
         const comments =
         await response.json();
@@ -82,7 +86,8 @@ async function addComment() {
             method:"POST",
 
             headers:{
-                "Content-Type":"application/json"
+                "Content-Type":"application/json",
+                Authorization: `Bearer ${localStorage.getItem("token")}`
             },
 
             body:JSON.stringify({

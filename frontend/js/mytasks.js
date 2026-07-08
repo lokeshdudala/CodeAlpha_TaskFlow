@@ -11,7 +11,11 @@ async function loadMyTasks() {
 
     try {
 
-        const response = await fetch(`${API_URL}/my/${userId}`);
+        const response = await fetch(`${API_URL}/my/${userId}`, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+        });
 
         const tasks = await response.json();
 

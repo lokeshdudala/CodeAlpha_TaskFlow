@@ -25,6 +25,26 @@ const userSchema = new mongoose.Schema(
         default: ""
     },
 
+    phone: {
+        type: String,
+        default: ""
+    },
+
+    bio: {
+        type: String,
+        default: ""
+    },
+
+    location: {
+        type: String,
+        default: ""
+    },
+
+    joined: {
+        type: Date,
+        default: null
+    },
+
     role: {
         type: String,
         enum: ["Admin", "Member"],

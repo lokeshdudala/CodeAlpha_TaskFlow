@@ -9,6 +9,7 @@ const taskRoutes = require("./routes/taskRoutes");
 const commentRoutes = require("./routes/commentRoutes");
 const memberRoutes = require("./routes/memberRoutes");
 const dashboardRoutes = require("./routes/dashboardRoutes");
+const profileRoutes = require("./routes/profileRoutes");
 
 dotenv.config();
 
@@ -27,7 +28,7 @@ app.use("/api/tasks", taskRoutes);
 app.use("/api/comments", commentRoutes);
 app.use("/api/members", memberRoutes);
 app.use("/api/dashboard", dashboardRoutes);
-
+app.use("/api/profile", profileRoutes);
 
 // Home Route
 app.get("/", (req, res) => {

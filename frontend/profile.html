@@ -5,75 +5,207 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile - TaskFlow</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/profile.css">
 </head>
 <body>
-    <div class="sidebar">
-        <div class="sidebar-header">
-            <h2>TaskFlow</h2>
-        </div>
-        <nav class="sidebar-nav">
-            <a href="dashboard.html">Dashboard</a>
-            <a href="projects.html">Projects</a>
-            <a href="mytasks.html">My Tasks</a>
-            <a href="calendar.html">Calendar</a>
-            <a href="members.html">Members</a>
-            <a href="profile.html" class="active">Profile</a>
-            <a href="#" id="logoutBtn">Logout</a>
-        </nav>
-    </div>
+    <div class="dashboard">
+         <aside class="sidebar">
 
-    <main class="main-content">
-        <header class="topbar">
-            <h1>My Profile</h1>
-        </header>
+        <div class="logo">
+            📋 TaskFlow
+        </div>
+
+        <ul>
+
+            <li onclick="location.href='dashboard.html'">
+                🏠 Dashboard
+            </li>
+
+            <li class="active">
+                📁 Projects
+            </li>
+
+            <li onclick="location.href='mytasks.html'">
+                📋 My Tasks
+            </li>
+
+            <li onclick="location.href='members.html'">
+                👥 Members
+            </li>
+
+            <li onclick="location.href='calendar.html'">
+                📅 Calendar
+            </li>
+
+            <li onclick="location.href='profile.html'">
+                👤 Profile
+            </li>
+
+            <li onclick="logout()">
+                🚪 Logout
+            </li>
+
+        </ul>
+
+    </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <h1>My Profile</h1>
+            </header>
 
         <section class="profile-content">
             <div class="container">
-                <div class="profile-card">
-                    <div class="profile-header">
-                        <img id="profileImage" src="images/logo.png" alt="Profile">
-                        <div class="profile-info">
-                            <h2 id="profileName"></h2>
-                            <p id="profileEmail"></p>
+                <div class="profile-overview">
+                    <div class="profile-card profile-summary-card">
+                        <div class="profile-header">
+                            <img id="profileImage" src="images/logo.svg" alt="Profile">
+                            <div class="profile-info">
+                                <h2 id="profileName"></h2>
+                                <p id="profileEmail"></p>
+                                <p class="profile-role">Member</p>
+                            </div>
+                            <button class="edit-profile-btn">Edit Profile</button>
+                        </div>
+
+                        <div class="profile-details-grid">
+                            <div class="profile-info-card">
+                                <label>Phone</label>
+                                <p id="profilePhone">+91 12345 67890</p>
+                            </div>
+                            <div class="profile-info-card">
+                                <label>Location</label>
+                                <p id="profileLocation">Not set</p>
+                            </div>
+                            <div class="profile-info-card">
+                                <label>Joined</label>
+                                <p id="profileJoined">Not set</p>
+                            </div>
                         </div>
                     </div>
+                </div>
 
-                    <form id="updateProfileForm">
-                        <div class="form-group">
-                            <label for="fullName">Full Name</label>
-                            <input type="text" id="fullName" name="fullName" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                        <div class="form-group">
-                            <label for="bio">Bio</label>
-                            <textarea id="bio" name="bio"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Update Profile</button>
-                    </form>
+                <div class="profile-grid">
+                    <div class="profile-card profile-form-card">
+                        <h3>Personal Information</h3>
+                        <form id="updateProfileForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="fullName">Full Name</label>
+                                    <input type="text" id="fullName" name="fullName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="phone">Phone</label>
+                                    <input type="tel" id="phone" name="phone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="location">Location</label>
+                                    <input type="text" id="location" name="location" placeholder="City, Country">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="joined">Joined</label>
+                                    <input type="month" id="joined" name="joined">
+                                </div>
+                                <div class="form-group">
+                                    <label for="bio">Bio</label>
+                                    <textarea id="bio" name="bio"></textarea>
+                                </div>
+                            </div>
+                            <div class="profile-button-group">
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                            </div>
+                        </form>
+                    </div>
 
-                    <form id="changePasswordForm">
-                        <h3>Change Password</h3>
-                        <div class="form-group">
-                            <label for="currentPassword">Current Password</label>
-                            <input type="password" id="currentPassword" name="currentPassword" required>
+                    <div class="profile-card password-change-card">
+                        <h3>Security</h3>
+                        <form id="changePasswordForm">
+                            <div class="form-group">
+                                <label for="currentPassword">Current Password</label>
+                                <input type="password" id="currentPassword" name="currentPassword" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="newPassword">New Password</label>
+                                <input type="password" id="newPassword" name="newPassword" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmNewPassword">Confirm Password</label>
+                                <input type="password" id="confirmNewPassword" name="confirmNewPassword" required>
+                            </div>
+                            <div class="profile-button-group">
+                                <button type="submit" class="btn btn-primary">Change Password</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="profile-sections">
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h4>Resume</h4>
+                            <button class="section-action" data-action="uploadResume">Upload</button>
                         </div>
-                        <div class="form-group">
-                            <label for="newPassword">New Password</label>
-                            <input type="password" id="newPassword" name="newPassword" required>
+                        <div class="section-content" id="resumeContent">
+                            <p class="section-placeholder">Do you have a resume? Upload here</p>
                         </div>
-                        <div class="form-group">
-                            <label for="confirmNewPassword">Confirm Password</label>
-                            <input type="password" id="confirmNewPassword" name="confirmNewPassword" required>
+                        <input type="file" id="resumeInput" accept=".pdf,.doc,.docx" hidden>
+                    </div>
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h4>Video Resume</h4>
+                            <button class="section-action" data-action="uploadVideo">Upload</button>
                         </div>
-                        <button type="submit" class="btn btn-primary">Change Password</button>
-                    </form>
+                        <div class="section-content" id="videoContent">
+                            <p class="section-placeholder">Do you have a video resume? Upload here</p>
+                        </div>
+                        <input type="file" id="videoInput" accept="video/*" hidden>
+                    </div>
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h4>Skills</h4>
+                            <button class="section-action" data-action="addSkill">Add Skill</button>
+                        </div>
+                        <div class="section-content" id="skillsContent">
+                            <p class="section-placeholder">Add your core skills and expertise.</p>
+                        </div>
+                    </div>
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h4>Experience</h4>
+                            <button class="section-action" data-action="addExperience">Add Experience</button>
+                        </div>
+                        <div class="section-content" id="experienceContent">
+                            <p class="section-placeholder">Add work history and roles.</p>
+                        </div>
+                    </div>
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h4>Certificates</h4>
+                            <button class="section-action" data-action="addCertificate">Add Certificate</button>
+                        </div>
+                        <div class="section-content" id="certificatesContent">
+                            <p class="section-placeholder">Upload professional certificates.</p>
+                        </div>
+                    </div>
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h4>Languages</h4>
+                            <button class="section-action" data-action="addLanguage">Add Language</button>
+                        </div>
+                        <div class="section-content" id="languagesContent">
+                            <p class="section-placeholder">Add languages you speak.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

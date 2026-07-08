@@ -3,64 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TaskFlow - Project Management</title>
+    <title>TaskFlow - Modern Project Management</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Style Sheet -->
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <nav class="navbar">
+<body class="landing-body">
+
+    <!-- Ambient Glowing Background Blobs -->
+    <div class="glowing-blob blob-1"></div>
+    <div class="glowing-blob blob-2"></div>
+    <div class="glowing-blob blob-3"></div>
+
+    <!-- Navigation Header -->
+    <nav class="landing-nav">
         <div class="container">
-            <div class="logo">
-                <img src="images/logo.png" alt="TaskFlow">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">📋</span>
                 <h1>TaskFlow</h1>
-            </div>
+            </a>
             <ul class="nav-links">
-                <li><a href="login.html">Login</a></li>
-                <li><a href="register.html">Register</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#demo">Live Demo</a></li>
+                <li><a href="login.html" class="btn-login">Login</a></li>
+                <li><a href="register.html" class="btn-register">Get Started</a></li>
             </ul>
         </div>
     </nav>
 
+    <!-- Main Content -->
     <main>
-        <section class="hero">
+        <!-- Hero Section -->
+        <section class="landing-hero">
             <div class="container">
-                <h2>Welcome to TaskFlow</h2>
-                <p>Manage your projects efficiently with our collaborative platform</p>
-                <div class="cta-buttons">
-                    <a href="login.html" class="btn btn-primary">Get Started</a>
-                    <a href="#features" class="btn btn-secondary">Learn More</a>
+                <div class="grid-hero">
+                    <div class="hero-content reveal active">
+                        <div class="hero-badge">
+                            <span>✨</span> Introducing TaskFlow 2.0
+                        </div>
+                        <h2>Streamline Your Team's Workspace</h2>
+                        <p>Track progress, collaborate in real-time, and manage projects from a single workspace. Beautifully designed for teams that demand velocity.</p>
+                        <div class="hero-ctas">
+                            <a href="register.html" class="btn btn-primary">Start Collaborating</a>
+                            <a href="#demo" class="btn btn-secondary">Try Live Demo</a>
+                        </div>
+                    </div>
+                    <div class="hero-mockup-wrapper reveal active">
+                        <div class="hero-mockup">
+                            <img src="images/dashboard-mockup.jpg" alt="TaskFlow Dashboard Mockup">
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="features" class="features">
+        <!-- Features Grid -->
+        <section id="features" class="landing-features reveal">
             <div class="container">
-                <h2>Features</h2>
+                <div class="section-title">
+                    <span>Capabilities</span>
+                    <h2>Engineered for High-Performance Teams</h2>
+                </div>
                 <div class="feature-grid">
                     <div class="feature-card">
-                        <h3>Project Management</h3>
-                        <p>Create and manage multiple projects with ease</p>
+                        <span class="feature-icon">📋</span>
+                        <h3>Agile Board</h3>
+                        <p>Visualize progress with our state-of-the-art Kanban boards. Track cards, priorities, and assignees instantly.</p>
                     </div>
                     <div class="feature-card">
-                        <h3>Task Tracking</h3>
-                        <p>Track tasks and stay on top of deadlines</p>
+                        <span class="feature-icon">👥</span>
+                        <h3>Instant Invites</h3>
+                        <p>Collaborate by adding members to specific projects with direct control over team access and roles.</p>
                     </div>
                     <div class="feature-card">
-                        <h3>Team Collaboration</h3>
-                        <p>Collaborate with your team members seamlessly</p>
+                        <span class="feature-icon">📅</span>
+                        <h3>Interactive Calendar</h3>
+                        <p>Track deadlines across projects with an intuitive calendar view. Stay ahead of schedule effortlessly.</p>
                     </div>
                     <div class="feature-card">
-                        <h3>Calendar View</h3>
-                        <p>Visualize your schedule with calendar integration</p>
+                        <span class="feature-icon">📈</span>
+                        <h3>Real-time Stats</h3>
+                        <p>Monitor completion rates, active work streams, and user assignments with our dashboard analytics.</p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Demo Kanban Section -->
+        <section id="demo" class="landing-demo reveal">
+            <div class="container">
+                <div class="section-title">
+                    <span>Interactive Preview</span>
+                    <h2>Experience the Flow</h2>
+                </div>
+                <div class="demo-board-wrapper">
+                    <div class="demo-board-header">
+                        <div class="demo-board-title">
+                            <span style="font-size: 1.5rem;">⚡</span>
+                            <h3>Interactive Board Preview</h3>
+                        </div>
+                        <div class="demo-stats">
+                            <div class="demo-stat-item">
+                                <p class="demo-stat-label">Tasks Completed</p>
+                                <p id="demo-completed-count" class="demo-stat-value">1</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="demo-columns">
+                        <!-- To Do Column -->
+                        <div class="demo-column">
+                            <h4>To Do <span id="todo-count" class="demo-column-count">0</span></h4>
+                            <div id="demo-todo-list" class="demo-tasks-list"></div>
+                        </div>
+                        <!-- In Progress Column -->
+                        <div class="demo-column">
+                            <h4>In Progress <span id="inprogress-count" class="demo-column-count">0</span></h4>
+                            <div id="demo-inprogress-list" class="demo-tasks-list"></div>
+                        </div>
+                        <!-- Done Column -->
+                        <div class="demo-column">
+                            <h4>Done <span id="done-count" class="demo-column-count">0</span></h4>
+                            <div id="demo-done-list" class="demo-tasks-list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="landing-testimonials reveal">
+            <div class="container">
+                <div class="section-title">
+                    <span>Testimonials</span>
+                    <h2>Loved by Product Teams</h2>
+                </div>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <span class="quote-icon">“</span>
+                        <p class="testimonial-text">TaskFlow revolutionized how we track sprints. The speed, minimal design, and zero overhead makes it our daily driver.</p>
+                        <div class="testimonial-author">
+                            <img class="author-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&h=100&q=80" alt="Sarah J.">
+                            <div class="author-info">
+                                <h4>Sarah Jenkins</h4>
+                                <p>VP of Product at Veloct</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <span class="quote-icon">“</span>
+                        <p class="testimonial-text">The calendar sync and board layouts are extremely responsive. Managing over 5 complex pipelines has never felt this lightweight.</p>
+                        <div class="testimonial-author">
+                            <img class="author-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&h=100&q=80" alt="David K.">
+                            <div class="author-info">
+                                <h4>David Kovic</h4>
+                                <p>Engineering Director at Hexa</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="landing-cta reveal">
+            <div class="container">
+                <div class="cta-banner">
+                    <h2>Ready to Elevate Your Productivity?</h2>
+                    <p>Create your first board in less than 2 minutes. Free workspace, unlimited features during beta.</p>
+                    <a href="register.html" class="btn-register">Get Started Now</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
+    <!-- Footer Redesign -->
+    <footer class="landing-footer">
         <div class="container">
-            <p>&copy; 2024 TaskFlow. All rights reserved.</p>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">
+                        <span style="font-size: 1.5rem;">📋</span>
+                        <h2>TaskFlow</h2>
+                    </a>
+                    <p class="footer-desc">The modern collaborative workspace for high-velocity software teams.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#demo">Live Demo</a></li>
+                        <li><a href="login.html">Login</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Guides</a></li>
+                        <li><a href="#">Security</a></li>
+                        <li><a href="#">API Docs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 TaskFlow. All rights reserved.</p>
+                <p>Designed for excellence.</p>
+            </div>
         </div>
     </footer>
+
+    <!-- Interactive Logic Script -->
+    <script src="js/landing.js"></script>
 </body>
 </html>

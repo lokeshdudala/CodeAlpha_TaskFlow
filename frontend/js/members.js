@@ -6,7 +6,11 @@ async function loadProjects() {
 
     try {
 
-        const response = await fetch(PROJECT_API);
+        const response = await fetch(PROJECT_API, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+        });
 
         const projects = await response.json();
 
@@ -46,7 +50,11 @@ async function loadMembers() {
         if (!projectId) return;
 
         const response =
-        await fetch(`${API_URL}?projectId=${projectId}`);
+        await fetch(`${API_URL}?projectId=${projectId}`, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+        });
 
         const users = await response.json();
 
@@ -122,7 +130,8 @@ async function addMember(userId) {
 
             headers: {
 
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem("token")}`
 
             },
 

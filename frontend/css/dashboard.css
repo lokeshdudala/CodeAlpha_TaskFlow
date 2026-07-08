@@ -1,34 +1,61 @@
+/* TaskFlow Premium Dashboard Styling */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+    font-family:'Plus Jakarta Sans', sans-serif;
 }
 
 body{
-    background:#f4f7fc;
+    background:#0b0f19;
+    color:#f8fafc;
+    overflow-x:hidden;
 }
 
 .dashboard{
     display:flex;
     min-height:100vh;
+    background:#0b0f19;
+    position:relative;
 }
 
-/* Sidebar */
+/* Background Ambient Blobs for Dashboard */
+.dashboard::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    top: -200px;
+    right: -100px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(79, 70, 229, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+    filter: blur(80px);
+    z-index: 0;
+    pointer-events: none;
+}
 
+/* Sidebar Redesign */
 .sidebar{
     width:260px;
-    background:#4f46e5;
-    color:white;
+    background:#090d16;
+    border-right:1px solid rgba(255, 255, 255, 0.08);
+    color:#cbd5e1;
     padding:30px 20px;
     position:fixed;
     height:100%;
+    z-index:10;
 }
 
 .sidebar .logo{
-    font-size:30px;
-    font-weight:bold;
-    margin-bottom:50px;
+    font-size:24px;
+    font-weight:800;
+    margin-bottom:45px;
+    color:#f8fafc;
+    display:flex;
+    align-items:center;
+    gap:10px;
 }
 
 .sidebar ul{
@@ -36,80 +63,116 @@ body{
 }
 
 .sidebar ul li{
-    padding:16px 18px;
-    margin-bottom:12px;
-    border-radius:10px;
+    padding:14px 18px;
+    margin-bottom:10px;
+    border-radius:12px;
     cursor:pointer;
-    transition:.3s;
+    font-weight: 500;
+    color:#cbd5e1;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display:flex;
+    align-items:center;
+    gap:12px;
 }
 
-.sidebar ul li:hover,
+.sidebar ul li:hover{
+    background:rgba(255, 255, 255, 0.05);
+    color:#f8fafc;
+    transform:translateX(3px);
+}
+
 .sidebar .active{
-    background:rgba(255,255,255,.18);
+    background:rgba(79, 70, 229, 0.15) !important;
+    color:#818cf8 !important;
+    font-weight:600;
+    border-left:3px solid #6366f1;
 }
 
-/* Main Content */
-
+/* Main Content Wrapper */
 .main-content{
     margin-left:260px;
-    width:100%;
-    padding:35px;
+    width:calc(100% - 260px);
+    padding:40px;
+    position:relative;
+    z-index:1;
 }
 
-/* Topbar */
-
+/* Topbar Glassmorphic */
 .topbar{
     display:flex;
     justify-content:space-between;
     align-items:center;
     margin-bottom:40px;
+    padding-bottom:20px;
+    border-bottom:1px solid rgba(255, 255, 255, 0.06);
 }
 
 .topbar h1{
-    color:#1e293b;
-    font-size:34px;
+    color:#f8fafc;
+    font-size:32px;
+    font-weight:800;
+    letter-spacing:-1px;
 }
 
 .topbar p{
-    color:#64748b;
+    color:#94a3b8;
     margin-top:6px;
+    font-size:15px;
 }
 
 .top-icons{
     display:flex;
     gap:20px;
-    font-size:24px;
+    font-size:20px;
+    color:#94a3b8;
+    cursor:pointer;
+}
+.top-icons span {
+    transition: color 0.2s;
+}
+.top-icons span:hover {
+    color:#f8fafc;
 }
 
-/* Statistics */
-
+/* Statistics Grid */
 .stats{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
     gap:25px;
     margin-bottom:45px;
 }
 
 .card{
-    background:white;
+    background:rgba(17, 24, 39, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     padding:28px;
     border-radius:18px;
-    box-shadow:0 10px 25px rgba(0,0,0,.05);
+    border:1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:0 15px 35px rgba(0,0,0,.2);
+    transition: transform 0.3s;
+}
+.card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(79, 70, 229, 0.2);
 }
 
 .card h3{
-    color:#64748b;
-    font-size:18px;
-    margin-bottom:15px;
+    color:#94a3b8;
+    font-size:14px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    margin-bottom:12px;
 }
 
 .card h2{
     font-size:36px;
-    color:#4f46e5;
+    color:#818cf8;
+    font-weight:800;
 }
 
-/* Projects */
-
+/* Section Headers */
 .section-header{
     display:flex;
     justify-content:space-between;
@@ -118,7 +181,10 @@ body{
 }
 
 .section-header h2{
-    color:#1e293b;
+    color:#f8fafc;
+    font-size:24px;
+    font-weight:800;
+    letter-spacing:-0.5px;
 }
 
 .section-header button{
@@ -129,116 +195,153 @@ body{
     border-radius:10px;
     cursor:pointer;
     font-size:15px;
+    font-weight:600;
+    box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3);
     transition:.3s;
 }
 
 .section-header button:hover{
     background:#4338ca;
+    transform:translateY(-1px);
+    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
 }
 
+/* Project Grids & Cards */
 .project-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
     gap:25px;
 }
 
 .project-card{
-    background:white;
+    background:rgba(17, 24, 39, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-radius:18px;
     padding:25px;
-    box-shadow:0 8px 20px rgba(0,0,0,.05);
-    transition:.3s;
+    border:1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .project-card:hover{
     transform:translateY(-6px);
+    border-color: rgba(99, 102, 241, 0.3);
+    box-shadow: 0 20px 40px -15px rgba(99, 102, 241, 0.25);
 }
 
 .project-card h3{
-    color:#1e293b;
+    color:#f8fafc;
+    font-size:20px;
+    font-weight:700;
     margin-bottom:12px;
 }
 
 .project-card p{
-    color:#64748b;
-    margin-bottom:18px;
+    color:#94a3b8;
+    font-size:15px;
+    line-height:1.5;
+    margin-bottom:20px;
 }
 
 .project-card button{
-    width:100%;
+    width:48%;
     padding:12px;
     border:none;
     border-radius:10px;
     background:#4f46e5;
     color:white;
+    font-weight:600;
     cursor:pointer;
+    transition: all 0.2s;
 }
 
 .project-card button:hover{
     background:#4338ca;
 }
+
+.project-card button:last-child{
+    background:rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    color:#f87171;
+    margin-left: 4%;
+}
+
+.project-card button:last-child:hover{
+    background:rgba(239, 68, 68, 0.2);
+    border-color: rgba(239, 68, 68, 0.4);
+    color:#fca5a5;
+}
+
+/* Forms & Inputs inside Dashboard context */
 .create-project{
-
-    background:white;
-    padding:25px;
+    background:rgba(17, 24, 39, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding:28px;
     border-radius:18px;
-    margin-bottom:30px;
-    box-shadow:0 10px 20px rgba(0,0,0,.05);
-
+    margin-bottom:35px;
+    border:1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:0 15px 35px rgba(0,0,0,.2);
 }
 
 .create-project input,
 .create-project textarea{
-
     width:100%;
     padding:14px;
-    margin-bottom:15px;
-    border:1px solid #ddd;
+    margin-bottom:18px;
+    border:1px solid rgba(255, 255, 255, 0.08);
+    background:rgba(255, 255, 255, 0.03);
     border-radius:10px;
     font-size:15px;
+    color:white;
+    transition: all 0.3s;
+}
 
+.create-project input::placeholder,
+.create-project textarea::placeholder {
+    color: #64748b;
+}
+
+.create-project input:focus,
+.create-project textarea:focus{
+    outline: none;
+    border-color: #818cf8;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.25);
 }
 
 .create-project textarea{
-
     height:120px;
     resize:none;
-
 }
 
 .create-project button{
-
     background:#4f46e5;
     color:white;
     border:none;
     padding:14px 24px;
     border-radius:10px;
     cursor:pointer;
-    font-size:16px;
-
+    font-size:15px;
+    font-weight:700;
+    transition:all 0.3s;
+    box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3);
 }
 
 .create-project button:hover{
-
     background:#4338ca;
-
+    transform:translateY(-1px);
+    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
 }
 
-.project-card button{
-
-    width:48%;
-    margin-top:15px;
-
-}
-
-.project-card button:last-child{
-
-    background:#ef4444;
-
-}
-
-.project-card button:last-child:hover{
-
-    background:#dc2626;
-
+/* Warnings */
+#orphanWarning {
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+    border-radius: 12px;
+    padding: 15px 20px;
+    color: #fbbf24;
+    margin-bottom: 30px;
+    font-size: 15px;
 }

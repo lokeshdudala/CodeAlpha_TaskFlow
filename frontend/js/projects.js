@@ -1,6 +1,13 @@
 const API_URL =
 "http://localhost:8000/api/projects";
 
+function getAuthHeaders() {
+    return {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`
+    };
+}
+
 // Check Login
 if (!localStorage.getItem("token")) {
 
@@ -17,7 +24,9 @@ async function loadProjects(){
     try{
 
         const response =
-        await fetch(API_URL);
+        await fetch(API_URL, {
+            headers: getAuthHeaders()
+        });
 
         const projects =
         await response.json();
@@ -106,12 +115,7 @@ async function createProject(){
 
             method:"POST",
 
-            headers:{
-
-                "Content-Type":
-                "application/json"
-
-            },
+            headers: getAuthHeaders(),
 
             body:JSON.stringify({
 
@@ -159,7 +163,8 @@ async function deleteProject(id){
 
         {
 
-            method:"DELETE"
+            method:"DELETE",
+            headers: getAuthHeaders()
 
         }
 

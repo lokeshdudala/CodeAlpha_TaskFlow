@@ -5,35 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calendar - TaskFlow</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-    <div class="sidebar">
-        <div class="sidebar-header">
-            <h2>TaskFlow</h2>
-        </div>
-        <nav class="sidebar-nav">
-            <a href="dashboard.html">Dashboard</a>
-            <a href="projects.html">Projects</a>
-            <a href="mytasks.html">My Tasks</a>
-            <a href="calendar.html" class="active">Calendar</a>
-            <a href="members.html">Members</a>
-            <a href="profile.html">Profile</a>
-            <a href="#" id="logoutBtn">Logout</a>
-        </nav>
-    </div>
+    <div class="dashboard">
+        <aside class="sidebar">
 
-    <main class="main-content">
-        <header class="topbar">
-            <h1>Calendar</h1>
-        </header>
+        <div class="logo">
+            📋 TaskFlow
+        </div>
+
+        <ul class="sidebar-menu">
+
+            <li onclick="location.href='dashboard.html'">
+                🏠 Dashboard
+            </li>
+
+            <li onclick="location.href='projects.html'">
+                📁 Projects
+            </li>
+
+            <li onclick="location.href='mytasks.html'">
+                📋 My Tasks
+            </li>
+
+            <li onclick="location.href='members.html'">
+                👥 Members
+            </li>
+
+            <li class="active" onclick="location.href='calendar.html'">
+                📅 Calendar
+            </li>
+
+            <li onclick="location.href='profile.html'">
+                👤 Profile
+            </li>
+
+            <li onclick="logout()">
+                🚪 Logout
+            </li>
+
+        </ul>
+
+    </aside>
+
+        <main class="main-content">
+            <header class="topbar">
+                <h1>Calendar</h1>
+            </header>
 
         <section class="calendar-content">
-            <div class="container">
+            <div class="container grid-2">
                 <div id="calendar"></div>
                 <div id="calendarEvents"></div>
             </div>
         </section>
-    </main>
+        </main>
+    </div>
 
     <script src="js/calendar.js"></script>
     <script src="js/logout.js"></script>

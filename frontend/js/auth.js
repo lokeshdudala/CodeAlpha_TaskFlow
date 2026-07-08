@@ -136,6 +136,11 @@ if(loginForm){
                         data.name
                     );
 
+                    localStorage.setItem(
+                        "userEmail",
+                        data.email
+                    );
+
                     alert("Login Successful");
 
                     window.location.href =

@@ -16,7 +16,12 @@ async function loadMembers() {
     try {
 
         const response = await fetch(
-            `${MEMBER_API}?projectId=${projectId}`
+            `${MEMBER_API}?projectId=${projectId}`,
+            {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem("token")}`
+                }
+            }
         );
 
         const members = await response.json();
@@ -113,7 +118,8 @@ document.getElementById("assignedTo").value;
                     method:"PUT",
 
                     headers:{
-                        "Content-Type":"application/json"
+                        "Content-Type":"application/json",
+                        Authorization: `Bearer ${localStorage.getItem("token")}`
                     },
 
                     body:JSON.stringify(taskData)
@@ -135,7 +141,8 @@ document.getElementById("assignedTo").value;
                     method:"POST",
 
                     headers:{
-                        "Content-Type":"application/json"
+                        "Content-Type":"application/json",
+                        Authorization: `Bearer ${localStorage.getItem("token")}`
                     },
 
                     body:JSON.stringify(taskData)
@@ -169,7 +176,11 @@ async function loadTasks() {
     try {
 
         const response =
-        await fetch(`${API_URL}/${projectId}`);
+        await fetch(`${API_URL}/${projectId}`, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+        });
 
         const tasks =
         await response.json();
@@ -297,7 +308,10 @@ async function deleteTask(id){
 
         {
 
-            method:"DELETE"
+            method:"DELETE",
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`
+            }
 
         }
 
@@ -315,7 +329,8 @@ async function updateStatus(id, status) {
             method: "PUT",
 
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${localStorage.getItem("token")}`
             },
 
             body: JSON.stringify({

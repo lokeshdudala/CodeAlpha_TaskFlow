@@ -7,24 +7,36 @@ const getDashboard = async (req, res) => {
 
         const totalProjects = await Project.countDocuments();
 
-        const totalTasks = await Task.countDocuments();
+        const allTasks = await Task.find()
+            .populate("project", "name")
+            .lean();
 
-        const completedTasks = await Task.countDocuments({
-            status: "Done"
-        });
+        const validTasks = allTasks.filter(task => task.project && task.project._id);
+        const orphanTasks = allTasks.length - validTasks.length;
 
-        const pendingTasks = await Task.countDocuments({
-            status: {
-                $ne: "Done"
-            }
-        });
+        const totalTasks = validTasks.length;
+        const completedTasks = validTasks.filter(task => task.status === "Done").length;
+        const pendingTasks = validTasks.filter(task => task.status !== "Done").length;
+
+        const recentProjects = await Project.find()
+            .sort({ createdAt: -1 })
+            .limit(4)
+            .populate("owner", "name");
+
+        const upcomingTasks = validTasks
+            .filter(task => task.dueDate)
+            .sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate))
+            .slice(0, 4);
 
         res.json({
 
             totalProjects,
             totalTasks,
             completedTasks,
-            pendingTasks
+            pendingTasks,
+            orphanTasks,
+            recentProjects,
+            upcomingTasks
 
         });
 
